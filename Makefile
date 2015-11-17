@@ -1,4 +1,4 @@
-FLAGS=-Wall -O3 -ffast-math -funroll-loops
+FLAGS=-Wall -O3 -ffast-math -funroll-loops -std=c++0x
 
 all:	test
 

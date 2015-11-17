@@ -1,6 +1,8 @@
 from  cover_tree import CoverTree
 from cover_tree_point import CoverTreePoint
 
+import random
+
 CoverTree(10.0, [CoverTreePoint([1,2], 'm'),])
 CoverTree(10.0)
 
@@ -104,15 +106,14 @@ def testTree():
     else:
         print "Remove root test: \t\t\tFailed\n"
 
-    #start = []
-    #for i in range(5):
-      #start.append((double)rand()/(double)RAND_MAX)
+    start = []
+    for i in range(5):
+       start.append(random.random())
 
-    #vector<CoverTreePoint> initVec
-    #initVec.push_back(CoverTreePoint(start,'a'))
-
-    #CoverTree<CoverTreePoint>
-        #cTree2(10,initVec)
+    initVec = []
+    initVec.append(CoverTreePoint(start, 'a'))
+ 
+    cTree2 = CoverTree(10, tuple(initVec)) 
     #cTree2.remove(CoverTreePoint(start,'a'))//Now the tree has no nodes...
     #//make sure it can handle trying to remove a node when
     #//it has no nodes to begin with...
