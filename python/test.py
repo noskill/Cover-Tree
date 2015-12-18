@@ -30,9 +30,8 @@ def testTree():
     a=(2.0,) # the 5 nearest points to this are 2.1, 2.5, 1.1, 1, 3.1
     points = cTree.kNearestNeighbors(CoverTreePoint(a,'a'),5)
     kNNGood=True
-    #for(int i =0 i<points.size() i++) {
-    #    points[i].print()
-    #}
+    for p in points:
+        p._print()
     a = (2.1,)
     if(not (CoverTreePoint(a,'a')==points[0])):
         kNNGood=False
@@ -113,12 +112,20 @@ def testTree():
     initVec = []
     initVec.append(CoverTreePoint(start, 'a'))
  
-    cTree2 = CoverTree(10, tuple(initVec)) 
-    #cTree2.remove(CoverTreePoint(start,'a'))//Now the tree has no nodes...
-    #//make sure it can handle trying to remove a node when
-    #//it has no nodes to begin with...
-    #cTree2.remove(CoverTreePoint(start,'a'))
-    
+    cTree2 = CoverTree(10, initVec) 
+    cTree2.remove(CoverTreePoint(start,'a')) #Now the tree has no nodes...
+    #make sure it can handle trying to remove a node when
+    #it has no nodes to begin with...
+    cTree2.remove(CoverTreePoint(start,'a'))
+    points = []
+    for i in range(500):
+        a = [random.random() for j in range(5)]
+        cTree2.insert(CoverTreePoint(a, 'a'))
+        points.append(a)
+    if cTree2.isValidTree():
+        print "500 random inserts test: \t\tPassed\n"
+    else:
+        print "500 random inserts test: \t\tFailed\n"  
     #points = vector<CoverTreePoint>()
     #for(int i=0i<500i++) {
         #vector<double> a

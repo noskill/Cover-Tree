@@ -11,6 +11,7 @@ class PythonPoint {
                 object eq;
     
     public: 
+
     PythonPoint(object  obj):
 	    item(obj), 
 	    dist(obj.attr("distance")),
@@ -24,10 +25,10 @@ class PythonPoint {
 	   return call<double>(dist.ptr(), p.item);
     }
 
-
     bool operator==(const PythonPoint&p) const{
 	   return call<double>(eq.ptr(), p.item);
     }
+
     void print() const {
          if (PyObject_HasAttrString(item.ptr(), "print")) {
 	     call_method<void>(item.ptr(), "print");
