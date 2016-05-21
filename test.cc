@@ -150,6 +150,7 @@ void bigTest(unsigned int numNodes, unsigned int numDimensions){
     }
     cout << "Removal done.\n";
 }
+
 int main()
 {    
     /* initialize random seed: */
